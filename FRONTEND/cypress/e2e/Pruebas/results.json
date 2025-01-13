@@ -1,0 +1,66 @@
+{
+    "testResults": [
+      {
+        "scenario": "Seleccionar una película de la cartelera y completar la compra",
+        "steps": [
+          {
+            "step": "el usuario visita la página de inicio \"http://localhost:5173/\"",
+            "result": "passed"
+          },
+          {
+            "step": "el usuario navega a la página de inicio de sesión \"http://localhost:5173/login\"",
+            "result": "passed"
+          },
+          {
+            "step": "ingresa su \"usuarioPrueba\" en el campo de email o nombre de usuario",
+            "result": "passed"
+          },
+          {
+            "step": "ingresa su \"contraseñaSegura123\" en el campo de contraseña",
+            "result": "failed",
+            "error": "El campo de contraseña no se encuentra o el formato es incorrecto"
+          },
+          {
+            "step": "hace clic en el botón de iniciar sesión",
+            "result": "skipped"
+          },
+          {
+            "step": "espera 2 segundos",
+            "result": "skipped"
+          },
+          {
+            "step": "navega a la sección de cartelera",
+            "result": "skipped"
+          },
+          {
+            "step": "selecciona la primera película de la lista",
+            "result": "skipped"
+          },
+          {
+            "step": "selecciona el horario \"08:00\" en el campo de horarios",
+            "result": "skipped"
+          },
+          {
+            "step": "hace clic en el botón de comprar",
+            "result": "skipped"
+          },
+          {
+            "step": "selecciona el primer asiento disponible",
+            "result": "skipped"
+          },
+          {
+            "step": "confirma la selección de asiento",
+            "result": "skipped"
+          },
+          {
+            "step": "confirma la compra",
+            "result": "skipped"
+          },
+          {
+            "step": "debería ver el mensaje \"¡La compra se ha realizado con éxito!\"",
+            "result": "skipped"
+          }
+        ]
+      }
+    ]
+  }

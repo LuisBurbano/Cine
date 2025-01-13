@@ -77,9 +77,7 @@
           }
         }
       ],
-      "tags": [
-        "@user-registration"
-      ]
+      "tags": ["@user-registration"]
     },
     {
       "keyword": "Scenario",
@@ -142,9 +140,72 @@
           }
         }
       ],
-      "tags": [
-        "@user-login"
-      ]
+      "tags": ["@user-login"]
+    },
+    {
+      "keyword": "Scenario",
+      "name": "Seleccionar una película de la cartelera",
+      "description": "",
+      "steps": [
+        {
+          "keyword": "Given ",
+          "line": 22,
+          "name": "el usuario navega a la página de inicio de sesión \"http://localhost:5173/login\"",
+          "result": {
+            "status": "passed",
+            "duration": 1000000
+          }
+        },
+        {
+          "keyword": "When ",
+          "line": 23,
+          "name": "ingresa su nombre de usuario o correo \"usuarioPrueba\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "line": 24,
+          "name": "ingresa su contraseña \"contraseñaSegura123\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "Then ",
+          "line": 25,
+          "name": "hace clic en el botón de iniciar sesión",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "line": 26,
+          "name": "espera 2 segundos",
+          "result": {
+            "status": "failed",
+            "error_message": "La espera excedió el tiempo permitido.",
+            "duration": 2000000
+          }
+        },
+        {
+          "keyword": "And ",
+          "line": 27,
+          "name": "navega a la sección de cartelera",
+          "result": {
+            "status": "skipped"
+          }
+        }
+      ],
+      "tags": ["@user-shop"]
+    },
+    {
+      
     }
   ]
 }

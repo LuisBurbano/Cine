@@ -1,0 +1,211 @@
+{
+  "elements": [
+    {
+      "keyword": "Scenario",
+      "name": "Debería registrar un usuario con datos válidos",
+      "steps": [
+        {
+          "keyword": "Given ",
+          "name": "el usuario visita la página de inicio \"http://localhost:5173/\"",
+          "result": {
+            "status": "passed",
+            "duration": 1000000
+          }
+        },
+        {
+          "keyword": "When ",
+          "name": "el usuario navega a la página de registro \"http://localhost:5173/register\"",
+          "result": {
+            "status": "passed",
+            "duration": 2000000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "ingresa su nombre \"Usuario\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "ingresa su apellido \"Prueba\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "ingresa su nombre de usuario \"usuarioPrueba\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "ingresa su correo electrónico \"usuario@prueba.com\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "ingresa su contraseña \"contraseñaSegura123\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "confirma su contraseña \"contraseñaSegura123\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "Then ",
+          "name": "hace clic en el botón de registrar",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        }
+      ],
+      "tags": ["@user-registration"]
+    },
+    {
+      "keyword": "Scenario",
+      "name": "Debería permitir a un usuario iniciar sesión con credenciales válidas",
+      "steps": [
+        {
+          "keyword": "Given ",
+          "name": "el usuario visita la página de inicio \"http://localhost:5173/\"",
+          "result": {
+            "status": "passed",
+            "duration": 1000000
+          }
+        },
+        {
+          "keyword": "When ",
+          "name": "el usuario navega a la página de inicio de sesión \"http://localhost:5173/login\"",
+          "result": {
+            "status": "passed",
+            "duration": 2000000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "ingresa su nombre de usuario o correo \"usuarioPrueba\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "ingresa su contraseña \"contraseñaSegura123\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "Then ",
+          "name": "hace clic en el botón de iniciar sesión",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "verifica que el botón de perfil existe",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "name": "verifica que el botón de cerrar sesión existe",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        }
+      ],
+      "tags": ["@user-login"]
+    },
+    {
+      "keyword": "Scenario",
+      "name": "Seleccionar una película de la cartelera",
+      "description": "",
+      "steps": [
+        {
+          "keyword": "Given ",
+          "line": 22,
+          "name": "el usuario navega a la página de inicio de sesión \"http://localhost:5173/login\"",
+          "result": {
+            "status": "passed",
+            "duration": 1000000
+          }
+        },
+        {
+          "keyword": "When ",
+          "line": 23,
+          "name": "ingresa su nombre de usuario o correo \"usuarioPrueba\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "line": 24,
+          "name": "ingresa su contraseña \"contraseñaSegura123\"",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "Then ",
+          "line": 25,
+          "name": "hace clic en el botón de iniciar sesión",
+          "result": {
+            "status": "passed",
+            "duration": 1500000
+          }
+        },
+        {
+          "keyword": "And ",
+          "line": 26,
+          "name": "espera 2 segundos",
+          "result": {
+            "status": "failed",
+            "error_message": "La espera excedió el tiempo permitido.",
+            "duration": 2000000
+          }
+        },
+        {
+          "keyword": "And ",
+          "line": 27,
+          "name": "navega a la sección de cartelera",
+          "result": {
+            "status": "skipped"
+          }
+        }
+      ],
+      "tags": ["@user-shop"]
+    },
+    {
+      
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+{
+    "features": [
+        {
+            "name": "Autenticación de administradores",
+            "scenarios": [
+                {
+                    "name": "Administrador puede autenticarse correctamente",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de inicio de sesión \"http://localhost:5173/login\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa su nombre de usuario \"nandoadmin\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa su contraseña \"admin123\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de iniciar sesión"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Inicio de sesión exitoso\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Administrador no puede autenticarse con una contraseña incorrecta",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de inicio de sesión \"http://localhost:5173/login\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa su nombre de usuario \"nandoadmin\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa su contraseña \"wrongpassword\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de iniciar sesión"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Contraseña incorrecta\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Administrador inexistente no puede autenticarse",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de inicio de sesión \"http://localhost:5173/login\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa su nombre de usuario \"noadmin@email.com\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa su contraseña \"password123\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de iniciar sesión"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Usuario no encontrado\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Datos de usuario",
+            "scenarios": [
+                {
+                    "name": "Ver datos de un usuario",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de datos del usuario \"http://localhost:5173/user/1\""
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el nombre del usuario \"Nombre esperado del usuario\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualizar los datos de un usuario",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de edición de datos del usuario \"http://localhost:5173/users/1/edit\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"NuevoNombre\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"NuevoApellido\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de actualizar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Usuario actualizado\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Actualizar la contraseña de un usuario",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de edición de datos del usuario \"http://localhost:5173/users/1/edit\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"NuevaContraseña123\" en el campo de contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"NuevaContraseña123\" en el campo de confirmación de contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de actualizar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Usuario actualizado\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Intentar acceder a un usuario inexistente",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de datos del usuario \"http://localhost:5173/users/9999\""
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Usuario no encontrado\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Autenticación de usuarios",
+            "scenarios": [
+                {
+                    "name": "Usuario puede autenticarse correctamente",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de inicio de sesión \"http://localhost:5173/login\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa su nombre de usuario \"nando\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa su contraseña \"qwert123\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de iniciar sesión"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Inicio de sesión exitoso\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Usuario no puede autenticarse con una contraseña incorrecta",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de inicio de sesión \"http://localhost:5173/login\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa su nombre de usuario \"usuario@email.com\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa su contraseña \"wrongpassword\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de iniciar sesión"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Contraseña incorrecta\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Usuario inexistente no puede autenticarse",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de inicio de sesión \"http://localhost:5173/login\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa su nombre de usuario \"inexistente@email.com\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa su contraseña \"password123\""
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de iniciar sesión"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Usuario no encontrado\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Manejo de cuentas",
+            "scenarios": [
+                {
+                    "name": "Ver todas las cuentas de usuario",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de usuarios \"http://localhost:5173/users\""
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver la lista de usuarios"
+                        }
+                    ]
+                },
+                {
+                    "name": "Editar una cuenta de usuario",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de edición de la cuenta del usuario \"http://localhost:5173/users/1/edit\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"UsuarioEditado\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"ApellidoEditado\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de actualizar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Usuario actualizado\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Eliminar una cuenta de usuario",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de detalles de la cuenta del usuario \"http://localhost:5173/users/1\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "hace clic en el botón de eliminar"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "confirma la eliminación en la alerta"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Usuario eliminado\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Editar una cuenta de administrador",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de edición de la cuenta del administrador \"http://localhost:5173/users/2/edit\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"AdminEditado\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"AdminApellidoEditado\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de actualizar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Usuario actualizado\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Registro de administradores",
+            "scenarios": [
+                {
+                    "name": "Registrar un administrador correctamente",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de registro \"http://localhost:5173/register\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"admin_usuario\" en el campo de nombre de usuario"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"admin@email.com\" en el campo de correo electrónico"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"adminpassword123\" en el campo de contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"adminpassword123\" en el campo de confirmar contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"AdminNombre\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"AdminApellido\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "selecciona \"Administrador\" en el campo de rol"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de registrar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Registro exitoso\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Intentar registrar un administrador con un correo electrónico existente",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de registro \"http://localhost:5173/register\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"admin_existente\" en el campo de nombre de usuario"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"admin@email.com\" en el campo de correo electrónico"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"adminpassword123\" en el campo de contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"adminpassword123\" en el campo de confirmar contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"AdminNombre\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"AdminApellido\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "selecciona \"Administrador\" en el campo de rol"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de registrar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"El correo electrónico ya está registrado\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Intentar registrar un administrador con contraseñas que no coinciden",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el administrador visita la página de registro \"http://localhost:5173/register\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"admin_contraseña\" en el campo de nombre de usuario"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"admin@mismatch.com\" en el campo de correo electrónico"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"adminpassword123\" en el campo de contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"adminpassword124\" en el campo de confirmar contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"AdminNombre\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"AdminApellido\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "selecciona \"Administrador\" en el campo de rol"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de registrar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Las contraseñas no coinciden\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Registro de usuarios",
+            "scenarios": [
+                {
+                    "name": "Registrar un usuario correctamente",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de registro \"http://localhost:5173/register\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"nuevo_usuario\" en el campo de nombre de usuario"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"usuario@email.com\" en el campo de correo electrónico"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"password123\" en el campo de contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"password123\" en el campo de confirmar contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"Nombre\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"Apellido\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "selecciona \"Usuario\" en el campo de rol"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de registrar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Registro exitoso\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Intentar registrar un usuario con un correo electrónico existente",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de registro \"http://localhost:5173/register\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"usuario_existente\" en el campo de nombre de usuario"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"existente@email.com\" en el campo de correo electrónico"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"password123\" en el campo de contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"password123\" en el campo de confirmar contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"Nombre\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"Apellido\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "selecciona \"Usuario\" en el campo de rol"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de registrar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"El correo electrónico ya está registrado\""
+                        }
+                    ]
+                },
+                {
+                    "name": "Intentar registrar un usuario con contraseñas que no coinciden",
+                    "steps": [
+                        {
+                            "keyword": "Given",
+                            "text": "el usuario visita la página de registro \"http://localhost:5173/register\""
+                        },
+                        {
+                            "keyword": "When",
+                            "text": "ingresa \"usuario_contraseña\" en el campo de nombre de usuario"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"usuario@mismatch.com\" en el campo de correo electrónico"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"password123\" en el campo de contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"password124\" en el campo de confirmar contraseña"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"Nombre\" en el campo de nombre"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "ingresa \"Apellido\" en el campo de apellido"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "selecciona \"Usuario\" en el campo de rol"
+                        },
+                        {
+                            "keyword": "And",
+                            "text": "hace clic en el botón de registrar"
+                        },
+                        {
+                            "keyword": "Then",
+                            "text": "debería ver el mensaje \"Las contraseñas no coinciden\""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
